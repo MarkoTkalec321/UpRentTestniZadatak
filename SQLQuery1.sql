@@ -1,0 +1,3 @@
+﻿SELECT * FROM [User];
+SELECT * FROM UserRole;
+SELECT * FROM Role;

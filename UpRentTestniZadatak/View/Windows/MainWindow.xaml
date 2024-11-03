@@ -1,0 +1,44 @@
+﻿<Window x:Class="UpRentTestniZadatak.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UpRentTestniZadatak.View.Converters"
+        xmlns:userControls="clr-namespace:UpRentTestniZadatak.View.UserControls"
+        mc:Ignorable="d"
+        Title="Tablica korisnika" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <local:DateTimeToStringConverter x:Key="DateTimeToStringConverter" />
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" >
+            <userControls:UserActionButtons AddClicked="AddButton_Click"
+                                    EditClicked="EditButton_Click"
+                                    DeleteClicked="DeleteButton_Click"
+                                    Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10"/>
+        </ScrollViewer>
+
+        <Border BorderBrush="Black" BorderThickness="1" Margin="10" Grid.Row="1">
+            <DataGrid x:Name="UserDataGrid" AutoGenerateColumns="False" SelectionMode="Extended"
+              HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Korisničko ime" Binding="{Binding Username}" Width="*" CellStyle="{StaticResource DataGridContentCellCentering}" />
+                    <DataGridTextColumn Header="Datum kreiranja" Binding="{Binding CreatedDate, Converter={StaticResource DateTimeToStringConverter}}" Width="*" CellStyle="{StaticResource DataGridContentCellCentering}" />
+                    <DataGridTextColumn Header="Kreirao" Binding="{Binding CreatedByUsername}" Width="*" CellStyle="{StaticResource DataGridContentCellCentering}" />
+                    <DataGridTextColumn Header="Datum izmjene" Binding="{Binding ModifiedDate, Converter={StaticResource DateTimeToStringConverter}}" Width="*" CellStyle="{StaticResource DataGridContentCellCentering}" />
+                    <DataGridTextColumn Header="Izmjenio" Binding="{Binding ModifiedByUsername}" Width="*" CellStyle="{StaticResource DataGridContentCellCentering}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+    </Grid>
+
+</Window>

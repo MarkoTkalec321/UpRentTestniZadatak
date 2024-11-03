@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="UpRentTestniZadatak.View.UserControls.UserCreationButtons"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UpRentTestniZadatak.View.UserControls"
+             mc:Ignorable="d" 
+             Height="30" Width="330">
+    
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Button Content="Izlaz" Width="100" Margin="5" Click="Exit_Click"/>
+        <Button Content="Spremi" Width="100" Margin="5" Click="Save_Click"/>
+        <Button Content="Spremi i izađi" Width="100" Margin="5" Click="Save_Exit"/>
+    </StackPanel>
+</UserControl>
